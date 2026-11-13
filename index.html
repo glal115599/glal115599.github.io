@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قوة المهمات والواجبات الخاصة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+        :root {
+            --midnight-black: #050505;
+            --royal-surface: #111111;
+            --gold-accent: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa8c2c;
+            --text-pure: #ffffff;
+            --text-dim: #bbbbbb;
+            --border-royal: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            background-color: var(--midnight-black);
+            color: var(--text-pure);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ترويسة النظام الرئيسية */
+        header.main-header {
+            background: radial-gradient(circle at center, #1a1a1a 0%, var(--midnight-black) 100%);
+            border-bottom: 3px solid var(--gold-accent);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+            width: 100%;
+        }
+
+        header.main-header h1 {
+            color: var(--gold-accent);
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        /* حاوية الساعات */
+        .header-clocks-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .analog-clock {
+            width: 150px;
+            height: 150px;
+            border: 4px solid var(--gold-accent);
+            border-radius: 50%;
+            position: relative;
+            background: radial-gradient(circle, #111 0%, #000 100%);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clock-center {
+            width: 12px;
+            height: 12px;
+            background: var(--gold-light);
+            border: 2px solid var(--gold-dark);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 10;
+            box-shadow: 0 0 5px var(--gold-accent);
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            z-index: 5;
+        }
+
+        .hour-hand {
+            width: 6px;
+            height: 44px;
+            margin-left: -3px;
+            background: linear-gradient(to top, var(--gold-dark), var(--gold-light));
+            border: 1px solid var(--gold-light);
+        }
+
+        .minute-hand {
+            width: 4px;
+            height: 60px;
+            margin-left: -2px;
+            background: linear-gradient(to top, #888, #fff);
+            border: 1px solid #ccc;
+        }
+
+        .second-hand {
+            width: 2px;
+            height: 68px;
+            margin-left: -1px;
+            background: #e63946;
+            z-index: 6;
+        }
+
+        .digital-clock-box {
+            background: rgba(17, 17, 17, 0.9);
+            border: 2px solid var(--gold-accent);
+            border-radius: 15px;
+            padding: 1rem 2rem;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+            text-align: center;
+        }
+
+        .digital-time {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        .digital-period {
+            font-size: 1.1rem;
+            color: var(--gold-accent);
+            font-weight: bold;
+            margin-top: -5px;
+        }
+
+        .date-display-static {
+            margin-top: 1.2rem;
+            font-size: 1.25rem;
+            color: var(--gold-light);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            flex: 1;
+            padding: 1.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card {
+            background-color: var(--royal-surface);
+            border: 1px solid var(--border-royal);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; left: 0; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .section-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border-royal);
+            padding-bottom: 1rem;
+        }
+
+        .section-header-bar h2 {
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+            align-items: end;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row .form-group { margin-bottom: 0; }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background-color: var(--midnight-black);
+            border: 1px solid var(--border-royal);
+            border-radius: 8px;
+            color: var(--text-pure);
+            font-size: 1.05rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        input:read-only {
+            border-color: #222;
+            color: var(--gold-light);
+            background-color: #0c0c0c;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--gold-accent), var(--gold-dark));
+            color: var(--midnight-black);
+            border: none;
+            padding: 1.1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #fff, var(--gold-accent));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn.nav-back {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-light);
+            width: auto;
+            margin-top: 0;
+            padding: 0.55rem 1.4rem;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            box-shadow: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn.nav-back:hover {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            transform: none;
+        }
+
+        .view { display: none; }
+        .view.active { display: block; animation: fadeIn 0.35s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 45vh;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .welcome-screen.active { display: flex; }
+
+        .welcome-screen h1 {
+            font-size: 2.5rem;
+            color: var(--gold-accent);
+            margin-bottom: 2rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.9);
+            line-height: 1.4;
+        }
+
+        .welcome-screen .btn {
+            width: 260px;
+            padding: 1.2rem;
+            font-size: 1.4rem;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-card {
+            text-align: center;
+            padding: 2.2rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--royal-surface), #1a1a1a);
+            border: 1px solid var(--border-royal);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .nav-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-card h3 {
+            color: var(--gold-light);
+            font-size: 1.8rem;
+            pointer-events: none;
+        }
+
+        .actual-strength-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(17, 17, 17, 0.9));
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--gold-accent);
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .actual-strength-box label {
+            color: var(--gold-light);
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .actual-strength-box input {
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--gold-light);
+            text-align: center;
+            background: #050505;
+            border: 1px solid var(--gold-dark);
+        }
+
+        .stadium-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.15);
+            z-index: -1;
+        }
+
+        .luxury-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .header-section h2 {
+            font-size: 1.9rem;
+            color: #fbbf24;
+            margin: 0;
+            letter-spacing: 0.5px;
+            font-weight: 900;
+        }
+
+        .header-section h3 {
+            font-size: 1.2rem;
+            color: #f1f5f9;
+            margin: 6px 0 0 0;
+            font-weight: 700;
+        }
+
+        .header-section::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .global-date-banner {
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.1));
+            border-right: 5px solid #fbbf24;
+            padding: 12px 20px;
+            border-radius: 12px 0 0 12px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fbbf24;
+        }
+
+        .match-card {
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 6px solid #fbbf24;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .match-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .time-badge {
+            background: rgba(251, 191, 36, 0.2);
+            padding: 4px 14px;
+            border-radius: 15px;
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .teams-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin: 15px 0;
+            color: #ffffff;
+        }
+
+        .team-name { flex: 1; word-break: break-word; }
+        .team-name:first-child { text-align: right; }
+        .team-name:last-child { text-align: left; }
+
+        .team-vs {
+            color: #fbbf24;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 900;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .meta-item { text-align: center; }
+        .meta-label { display: block; color: #94a3b8; font-size: 0.8rem; margin-bottom: 2px; }
+        .meta-value { color: #ffffff; font-weight: 700; font-size: 1rem; }
+
+        .match-btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #92400e);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .match-btn-primary:hover { background: linear-gradient(135deg, #fbbf24, #b45309); }
+
+        .match-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .match-btn-secondary:hover { background: rgba(255, 255, 255, 0.2); }
+
+        .no-print-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .print-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .print-table th, .print-table td {
+            border: 1px solid #444;
+            padding: 1.1rem;
+            text-align: center;
+        }
+
+        .print-table th {
+            background-color: #1a1a1a;
+            color: var(--gold-accent);
+            font-weight: 800;
+        }
+
+        .print-footer {
+            margin-top: 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .signature-line {
+            border-top: 2px solid var(--text-pure);
+            width: 280px;
+            margin-top: 3.5rem;
+            text-align: center;
+            padding-top: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            header.main-header h1 { font-size: 1.8rem; }
+            .welcome-screen h1 { font-size: 1.9rem; }
+            .card { padding: 1.4rem; }
+            .form-row { grid-template-columns: 1fr; gap: 1rem; }
+            .form-row.keep-two-cols { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+            .section-header-bar h2 { font-size: 1.3rem; }
+        }
+
+        @media print {
+            body { background: #050505 !important; color: #ffffff !important; padding: 0 !important; }
+            header.main-header, .no-print, .no-print-actions, .stadium-bg {
+                display: none !important;
+            }
+            .container { padding: 0 !important; max-width: 100% !important; }
+            
+            /* إخفاء النماذج وإظهار شاشات العرض النهائية فقط عند طباعة أي قسم */
+            #form-wrap, #power-form-wrap, #comp-form-wrap { display: none !important; }
+            #display-wrap, #power-display-wrap, #comp-display-wrap {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                background: #000 !important;
+                box-shadow: none !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            }
+            #view-matches, #view-dailypower, #view-completion { display: block !important; }
+            .view { display: none !important; }
+            .view.active { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>قوة المهمات والواجبات الخاصة</h1>
+        <div class="header-clocks-wrapper">
+            <div class="analog-clock">
+                <div class="clock-center"></div>
+                <div class="hand hour-hand" id="hour-hand"></div>
+                <div class="hand minute-hand" id="minute-hand"></div>
+                <div class="hand second-hand" id="second-hand"></div>
+            </div>
+            <div class="digital-clock-box">
+                <div id="digital-time-display" class="digital-time">00:00:00</div>
+                <div id="digital-period-display" class="digital-period">---</div>
+            </div>
+        </div>
+        <div id="static-date-display" class="date-display-static">جارٍ تحميل البيانات...</div>
+    </header>
+
+    <div class="container">
+        
+        <!-- 1. شاشة الترحيب -->
+        <div id="view-welcome" class="view active welcome-screen">
+            <h1>جاهزية العمليات الميدانية</h1>
+            <button class="btn" onclick="switchView('view-hub')">دخول</button>
+        </div>
+
+        <!-- 2. لوحة التحكم الرئيسية -->
+        <div id="view-hub" class="view">
+            <div class="section-header-bar">
+                <h2>لوحة التحكم الرئيسية</h2>
+                <button class="btn nav-back" onclick="switchView('view-welcome')">تسجيل الخروج</button>
+            </div>
+            <div class="nav-grid">
+                <div class="card nav-card" onclick="switchView('view-matches')">
+                    <h3>سجل المباريات</h3>
+                </div>
+                <div class="card nav-card" onclick="switchView('view-dailypower')">
+                    <h3>نشاط القوة اليومي</h3>
+                </div>
+                <div class="card nav-card" onclick="switchView('view-completion')">
+                    <h3>التكميل</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم أ: سجل المباريات -->
+        <div id="view-matches" class="view">
+            <div class="stadium-bg"></div>
+            
+            <div class="section-header-bar no-print">
+                <h2>إدارة سجل المباريات</h2>
+                <button class="btn nav-back" onclick="switchView('view-hub')">➔ الرئيسية</button>
+            </div>
+
+            <div class="luxury-container" id="form-wrap">
+                <div class="header-section">
+                    <h2>قوة المهمات والواجبات الخاصة</h2>
+                    <h3>المباريات بالجوف</h3>
+                </div>
+
+                <div class="form-row keep-two-cols" style="background: rgba(251, 191, 36, 0.1); padding: 15px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(251, 191, 36, 0.2);">
+                    <div class="form-group">
+                        <label style="color: #fbbf24;">اليوم</label>
+                        <input type="text" id="global-day" placeholder="مثال: الخميس">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #fbbf24;">التاريخ</label>
+                        <input type="text" id="global-date" placeholder="مثال: 1448/6/2 هـ">
+                    </div>
+                </div>
+
+                <div id="entries-container">
+                    <div class="match-entry" id="entry-1">
+                        <h3 style="color: #fbbf24; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; margin-bottom: 15px;">المباراة 1</h3>
+                        <div class="form-row">
+                            <div class="form-group"><label>الوقت</label><input type="text" class="inp-time" placeholder="2:15 م"></div>
+                            <div class="form-group"><label>اللعبة</label><input type="text" class="inp-game" placeholder="قدم، يد، سلة..."></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>الفريق الأول (المستضيف)</label><input type="text" class="inp-t1" placeholder="اسم الفريق الأول"></div>
+                            <div class="form-group"><label>الفريق الثاني (الضيف)</label><input type="text" class="inp-t2" placeholder="اسم الفريق الثاني"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>الدرجة</label><input type="text" class="inp-grade" placeholder="الفريق الأول، شباب..."></div>
+                            <div class="form-group"><label>المكان</label><input type="text" class="inp-location" placeholder="اسم الملعب"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="match-btn-secondary" onclick="addEntry()">+ إضافة مباراة أخرى</button>
+                <button class="match-btn-primary" onclick="generateLuxuryDisplay()" style="margin-top: 15px;">عرض الجدول الفاخر</button>
+            </div>
+
+            <div class="luxury-container" id="display-wrap" style="display: none;">
+                <div class="header-section">
+                    <h2>قوة المهمات والواجبات الخاصة</h2>
+                    <h3>المباريات بالجوف</h3>
+                </div>
+
+                <div id="global-banner-area"></div>
+                <div id="cards-area"></div>
+
+                <div class="no-print-actions">
+                    <button class="match-btn-primary" onclick="window.print()">طباعة السجل</button>
+                    <button class="match-btn-secondary" onclick="resetView('form-wrap', 'display-wrap')">تعديل البيانات</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم ب: نشاط القوة اليومي (بنظام عرض فاخر مشابه لسجل المباريات) -->
+        <div id="view-dailypower" class="view">
+            <div class="section-header-bar no-print">
+                <h2>نشاط القوة اليومي</h2>
+                <button class="btn nav-back" onclick="switchView('view-hub')">➔ الرئيسية</button>
+            </div>
+            
+            <div class="luxury-container" id="power-form-wrap">
+                <div class="header-section">
+                    <h2>قوة المهمات والواجبات الخاصة</h2>
+                    <h3>نشاط القوة اليومي</h3>
+                </div>
+                <div class="form-row keep-two-cols">
+                    <div class="form-group">
+                        <label>اليوم</label>
+                        <input type="text" id="power-day">
+                    </div>
+                    <div class="form-group">
+                        <label>التاريخ</label>
+                        <input type="text" id="power-date">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>مخالفي نظام الإقامة والعمل</label>
+                        <input type="number" id="power-violators" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>المخالفات المرورية</label>
+                        <input type="number" id="power-traffic" value="0" min="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>مخالفات الذوق العام</label>
+                        <input type="number" id="power-public" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>أشخاص مطلوبين (اختياري)</label>
+                        <input type="number" id="power-wanted" placeholder="اتركه فارغاً إذا لم يوجد" min="0">
+                    </div>
+                </div>
+                <button class="match-btn-primary" onclick="generatePowerDisplay()" style="margin-top: 15px;">عرض التقرير الفاخر</button>
+            </div>
+
+            <!-- عرض التقرير النهائي لنشاط القوة -->
+            <div class="luxury-container" id="power-display-wrap" style="display: none;">
+                <div class="header-section">
+                    <h2>قوة المهمات والواجبات الخاصة</h2>
+                    <h3>نشاط القوة اليومي</h3>
+                </div>
+                <div id="power-banner-area"></div>
+                <div id="power-table-area"></div>
+
+                <div class="print-footer">
+                    <div></div>
+                    <div class="signature-line">قوة المهمات والواجبات الخاصة</div>
+                </div>
+
+                <div class="no-print-actions">
+                    <button class="match-btn-primary" onclick="window.print()">طباعة التقرير</button>
+                    <button class="match-btn-secondary" onclick="resetView('power-form-wrap', 'power-display-wrap')">تعديل البيانات</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم ج: التكميل (بنظام عرض فاخر مشابه لسجل المباريات) -->
+        <div id="view-completion" class="view">
+            <div class="section-header-bar no-print">
+                <h2>التكميل</h2>
+                <button class="btn nav-back" onclick="switchView('view-hub')">➔ الرئيسية</button>
+            </div>
+
+            <div class="luxury-container" id="comp-form-wrap">
+                <div class="header-section">
+                    <h2>قوة المهمات والواجبات الخاصة</h2>
+                    <h3>تقرير تكميل القوة اليومي</h3>
+                </div>
+
+                <div class="form-group">
+                    <label style="color: var(--gold-accent); font-size: 1.15rem;">القوة الأساسية (الملاك)</label>
+                    <input type="number" id="comp-total" value="100" min="0" oninput="calculateActualStrength()" style="font-weight: bold; font-size: 1.3rem;">
+                </div>
+
+                <div class="form-row keep-two-cols" style="margin-top: 1.2rem;">
+                    <div class="form-group">
+                        <label>الغياب</label>
+                        <input type="number" id="comp-absent" value="0" min="0" oninput="calculateActualStrength()">
+                    </div>
+                    <div class="form-group">
+                        <label>الإجازات الاعتيادية</label>
+                        <input type="number" id="comp-leaves" value="0" min="0" oninput="calculateActualStrength()">
+                    </div>
+                </div>
+
+                <div class="form-row keep-two-cols" style="margin-top: 1.2rem;">
+                    <div class="form-group">
+                        <label>الإجازات المرضية</label>
+                        <input type="number" id="comp-sick" value="0" min="0" oninput="calculateActualStrength()">
+                    </div>
+                    <div class="form-group">
+                        <label>انتدابات خارجية</label>
+                        <input type="number" id="comp-duties" value="0" min="0" oninput="calculateActualStrength()">
+                    </div>
+                </div>
+
+                <div class="form-row" style="margin-top: 1.2rem;">
+                    <div class="form-group">
+                        <label style="color: var(--gold-light);">توقيف</label>
+                        <input type="number" id="comp-detention" value="0" min="0" oninput="calculateActualStrength()">
+                    </div>
+                </div>
+                
+                <div class="actual-strength-box">
+                    <label>القوة الفعلية (الموجودة)</label>
+                    <input type="number" id="comp-actual" readonly>
+                </div>
+
+                <div style="margin-top: 2rem; border-top: 1px solid var(--border-royal); padding-top: 1.5rem;">
+                    <h3 style="color: var(--gold-light); margin-bottom: 1rem; font-size: 1.15rem;">تعديل يدوي للتاريخ واليوم (للتقارير المؤرشفة)</h3>
+                    <div class="form-row keep-two-cols">
+                        <div class="form-group">
+                            <label>تعديل اليوم</label>
+                            <input type="text" id="comp-day-editable" placeholder="اكتب اليوم">
+                        </div>
+                        <div class="form-group">
+                            <label>تعديل التاريخ</label>
+                            <input type="text" id="comp-date-editable" placeholder="اكتب التاريخ">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="match-btn-primary" style="margin-top: 1.8rem;" onclick="generateCompletionDisplay()">عرض تقرير التكميل الفاخر</button>
+            </div>
+
+            <!-- عرض التقرير النهائي للتكميل -->
+            <div class="luxury-container" id="comp-display-wrap" style="display: none;">
+                <div class="header-section">
+                    <h2>قوة المهمات والواجبات الخاصة</h2>
+                    <h3>تقرير تكميل القوة اليومي</h3>
+                </div>
+                <div id="comp-banner-area"></div>
+                <div id="comp-table-area"></div>
+
+                <div class="print-footer">
+                    <div></div>
+                    <div class="signature-line">قوة المهمات والواجبات الخاصة</div>
+                </div>
+
+                <div class="no-print-actions">
+                    <button class="match-btn-primary" onclick="window.print()">طباعة التقرير</button>
+                    <button class="match-btn-secondary" onclick="resetView('comp-form-wrap', 'comp-display-wrap')">تعديل البيانات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.switchView = function(viewId) {
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+            const targetView = document.getElementById(viewId);
+            if(targetView) {
+                targetView.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        function updateClockAndDate() {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+
+            const secondDegrees = (seconds / 60) * 360;
+            const minuteDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6);
+            const hourDegrees = (((hours % 12) / 12) * 360) + ((minutes / 60) * 30);
+
+            const secondHand = document.getElementById('second-hand');
+            const minuteHand = document.getElementById('minute-hand');
+            const hourHand = document.getElementById('hour-hand');
+
+            if(secondHand) secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+            if(minuteHand) minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+            if(hourHand) hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+
+            let displayHours = hours % 12;
+            displayHours = displayHours ? displayHours : 12;
+            const formattedHours = String(displayHours).padStart(2, '0');
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(seconds).padStart(2, '0');
+            const period = hours >= 12 ? 'مساءً' : 'صباحاً';
+
+            const digitalTimeDisplay = document.getElementById('digital-time-display');
+            const digitalPeriodDisplay = document.getElementById('digital-period-display');
+            if(digitalTimeDisplay) digitalTimeDisplay.innerText = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+            if(digitalPeriodDisplay) digitalPeriodDisplay.innerText = period;
+
+            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('ar-SA', optionsDate);
+            const staticDateDisplay = document.getElementById('static-date-display');
+            if(staticDateDisplay) staticDateDisplay.innerText = dateString;
+
+            const dayName = now.toLocaleDateString('ar-SA', { weekday: 'long' });
+            const dayNumber = now.toLocaleDateString('ar-SA', { day: 'numeric', month: 'numeric', year: 'numeric' });
+
+            const powerDay = document.getElementById('power-day');
+            const powerDate = document.getElementById('power-date');
+            if(powerDay && !powerDay.value) powerDay.value = dayName;
+            if(powerDate && !powerDate.value) powerDate.value = dayNumber;
+        }
+
+        setInterval(updateClockAndDate, 1000);
+        updateClockAndDate();
+
+        let entryCount = 1;
+
+        window.addEntry = function() {
+            entryCount++;
+            const container = document.getElementById('entries-container');
+            const div = document.createElement('div');
+            div.className = 'match-entry';
+            div.id = `entry-${entryCount}`;
+            div.innerHTML = `
+                <h3 style="color: #fbbf24; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 10px; margin-top: 25px; margin-bottom: 15px;">المباراة ${entryCount}</h3>
+                <div class="form-row">
+                    <div class="form-group"><label>الوقت</label><input type="text" class="inp-time" placeholder="2:15 م"></div>
+                    <div class="form-group"><label>اللعبة</label><input type="text" class="inp-game" placeholder="قدم، يد، سلة..."></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>الفريق الأول (المستضيف)</label><input type="text" class="inp-t1" placeholder="اسم الفريق الأول"></div>
+                    <div class="form-group"><label>الفريق الثاني (الضيف)</label><input type="text" class="inp-t2" placeholder="اسم الفريق الثاني"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>الدرجة</label><input type="text" class="inp-grade" placeholder="الفريق الأول، شباب..."></div>
+                    <div class="form-group"><label>المكان</label><input type="text" class="inp-location" placeholder="اسم الملعب"></div>
+                </div>
+            `;
+            container.appendChild(div);
+        };
+
+        window.generateLuxuryDisplay = function() {
+            const globalDay = document.getElementById('global-day').value || '---';
+            const globalDate = document.getElementById('global-date').value || '---';
+            const entries = document.getElementsByClassName('match-entry');
+
+            const bannerArea = document.getElementById('global-banner-area');
+            bannerArea.innerHTML = `
+                <div class="global-date-banner">
+                    <span>📅 ${globalDay}</span>
+                    <span>الموافق: ${globalDate}</span>
+                </div>
+            `;
+
+            const cardsArea = document.getElementById('cards-area');
+            cardsArea.innerHTML = '';
+
+            for (let el of entries) {
+                const time = el.querySelector('.inp-time').value || '---';
+                const game = el.querySelector('.inp-game').value || '---';
+                const t1 = el.querySelector('.inp-t1').value || 'فريق أ';
+                const t2 = el.querySelector('.inp-t2').value || 'فريق ب';
+                const grade = el.querySelector('.inp-grade').value || '---';
+                const loc = el.querySelector('.inp-location').value || '---';
+
+                const card = document.createElement('div');
+                card.className = 'match-card';
+                card.innerHTML = `
+                    <div class="match-header">
+                        <span class="time-badge">⏰ ${time}</span>
+                    </div>
+                    <div class="teams-display">
+                        <div class="team-name">${t1}</div>
+                        <div class="team-vs">VS</div>
+                        <div class="team-name">${t2}</div>
+                    </div>
+                    <div class="meta-grid">
+                        <div class="meta-item"><span class="meta-label">اللعبة</span><span class="meta-value">${game}</span></div>
+                        <div class="meta-item"><span class="meta-label">الدرجة</span><span class="meta-value">${grade}</span></div>
+                        <div class="meta-item"><span class="meta-label">الموقع</span><span class="meta-value">${loc}</span></div>
+                    </div>
+                `;
+                cardsArea.appendChild(card);
+            }
+
+            document.getElementById('form-wrap').style.display = 'none';
+            document.getElementById('display-wrap').style.display = 'block';
+        };
+
+        window.resetView = function(formId, displayId) {
+            document.getElementById(displayId).style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+        };
+
+        window.calculateActualStrength = function() {
+            const total = parseInt(document.getElementById('comp-total').value) || 0;
+            const absent = parseInt(document.getElementById('comp-absent').value) || 0;
+            const leaves = parseInt(document.getElementById('comp-leaves').value) || 0;
+            const sick = parseInt(document.getElementById('comp-sick').value) || 0;
+            const duties = parseInt(document.getElementById('comp-duties').value) || 0;
+            const detention = parseInt(document.getElementById('comp-detention').value) || 0;
+
+            const nonPresent = absent + leaves + sick + duties + detention;
+            const actual = total - nonPresent;
+
+            document.getElementById('comp-actual').value = actual;
+        };
+
+        calculateActualStrength();
+
+        // توليد وعرض تقرير نشاط القوة الفاخر
+        window.generatePowerDisplay = function() {
+            const day = document.getElementById('power-day').value || '---';
+            const date = document.getElementById('power-date').value || '---';
+            const violators = document.getElementById('power-violators').value || 0;
+            const traffic = document.getElementById('power-traffic').value || 0;
+            const publicViolations = document.getElementById('power-public').value || 0;
+            const wantedInput = document.getElementById('power-wanted').value;
+
+            document.getElementById('power-banner-area').innerHTML = `
+                <div class="global-date-banner">
+                    <span>📅 ${day}</span>
+                    <span>الموافق: ${date}</span>
+                </div>
+            `;
+
+            let rowsHtml = `
+                <tr><td>مخالفي نظام الإقامة والعمل</td><td>${violators}</td></tr>
+                <tr><td>المخالفات المرورية</td><td>${traffic}</td></tr>
+                <tr><td>مخالفات الذوق العام</td><td>${publicViolations}</td></tr>
+            `;
+
+            if (wantedInput !== '' && parseInt(wantedInput) > 0) {
+                rowsHtml += `<tr><td>أشخاص مطلوبين</td><td>${wantedInput}</td></tr>`;
+            }
+
+            document.getElementById('power-table-area').innerHTML = `
+                <table class="print-table">
+                    <thead>
+                        <tr>
+                            <th>نوع المخالفة / النشاط</th>
+                            <th>العدد</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rowsHtml}
+                    </tbody>
+                </table>
+            `;
+
+            document.getElementById('power-form-wrap').style.display = 'none';
+            document.getElementById('power-display-wrap').style.display = 'block';
+        };
+
+        // توليد وعرض تقرير التكميل الفاخر
+        window.generateCompletionDisplay = function() {
+            const now = new Date();
+            const dayAuto = now.toLocaleDateString('ar-SA', { weekday: 'long' });
+            const dateAuto = now.toLocaleDateString('ar-SA', { day: 'numeric', month: 'numeric', year: 'numeric' });
+
+            const dayManual = document.getElementById('comp-day-editable').value;
+            const dateManual = document.getElementById('comp-date-editable').value;
+
+            const dayToUse = dayManual.trim() !== '' ? dayManual : dayAuto;
+            const dateToUse = dateManual.trim() !== '' ? dateManual : dateAuto;
+
+            const total = document.getElementById('comp-total').value || 0;
+            const absent = document.getElementById('comp-absent').value || 0;
+            const leaves = document.getElementById('comp-leaves').value || 0;
+            const sick = document.getElementById('comp-sick').value || 0;
+            const duties = document.getElementById('comp-duties').value || 0;
+            const detention = document.getElementById('comp-detention').value || 0;
+            const actual = document.getElementById('comp-actual').value || 0;
+
+            document.getElementById('comp-banner-area').innerHTML = `
+                <div class="global-date-banner">
+                    <span>📅 ${dayToUse}</span>
+                    <span>الموافق: ${dateToUse}</span>
+                </div>
+            `;
+
+            document.getElementById('comp-table-area').innerHTML = `
+                <table class="print-table">
+                    <thead>
+                        <tr>
+                            <th>البيان التفصيلي</th>
+                            <th>العدد</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>القوة الأساسية (الملاك)</td><td>${total}</td></tr>
+                        <tr style="background-color: rgba(212, 175, 55, 0.25); font-weight: bold;"><td>القوة الفعلية (الموجودة)</td><td>${actual}</td></tr>
+                        <tr><td>الغياب</td><td>${absent}</td></tr>
+                        <tr><td>الإجازات الاعتيادية</td><td>${leaves}</td></tr>
+                        <tr><td>الإجازات المرضية</td><td>${sick}</td></tr>
+                        <tr><td>انتدابات خارجية</td><td>${duties}</td></tr>
+                        <tr><td>توقيف</td><td>${detention}</td></tr>
+                    </tbody>
+                </table>
+            `;
+
+            document.getElementById('comp-form-wrap').style.display = 'none';
+            document.getElementById('comp-display-wrap').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
