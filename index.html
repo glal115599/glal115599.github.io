@@ -35,7 +35,6 @@
             flex-direction: column;
         }
 
-        /* ترويسة النظام الرئيسية */
         header.main-header {
             background: radial-gradient(circle at center, #1a1a1a 0%, var(--midnight-black) 100%);
             border-bottom: 3px solid var(--gold-accent);
@@ -54,7 +53,6 @@
             line-height: 1.3;
         }
 
-        /* حاوية الساعات */
         .header-clocks-wrapper {
             display: flex;
             justify-content: center;
@@ -356,7 +354,7 @@
 
         .actual-strength-box {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(17, 17, 17, 0.9));
-            padding: 1.5rem;
+            padding: 1.2rem;
             border-radius: 12px;
             border: 2px solid var(--gold-accent);
             margin-top: 1.5rem;
@@ -365,13 +363,13 @@
 
         .actual-strength-box label {
             color: var(--gold-light);
-            font-size: 1.25rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
         }
 
         .actual-strength-box input {
             font-weight: 900;
-            font-size: 2rem;
+            font-size: 1.6rem;
             color: var(--gold-light);
             text-align: center;
             background: #050505;
@@ -402,12 +400,12 @@
 
         .header-section {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             position: relative;
         }
 
         .header-section h2 {
-            font-size: 1.9rem;
+            font-size: 1.85rem;
             color: #fbbf24;
             margin: 0;
             letter-spacing: 0.5px;
@@ -427,23 +425,162 @@
             width: 120px;
             height: 3px;
             background: linear-gradient(90deg, transparent, #fbbf24, transparent);
-            margin: 12px auto 0;
+            margin: 10px auto 0;
             border-radius: 2px;
+        }
+
+        .comp-title-support-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .comp-title-support-row h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #f1f5f9;
+            font-weight: 800;
+        }
+
+        .support-inline-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.45);
+            padding: 5px 12px;
+            border-radius: 10px;
+        }
+
+        .support-inline-box label {
+            margin: 0;
+            color: #fbbf24;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .support-inline-box input {
+            width: 75px;
+            padding: 4px 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            background-color: #050505;
+            border: 1px solid #fbbf24;
+            color: #ffffff;
+            border-radius: 6px;
+        }
+
+        .support-print-badge {
+            background: rgba(251, 191, 36, 0.18);
+            border: 1px solid #fbbf24;
+            color: #fbbf24;
+            padding: 4px 14px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 800;
         }
 
         .global-date-banner {
             background: linear-gradient(90deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.1));
             border-right: 5px solid #fbbf24;
-            padding: 12px 20px;
+            padding: 10px 20px;
             border-radius: 12px 0 0 12px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: #fbbf24;
+        }
+
+        .comp-category-box {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border-royal);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .comp-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comp-category-header label {
+            font-size: 1.15rem;
+            color: var(--gold-light);
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .small-counter-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #050505;
+            padding: 2px 4px;
+            border-radius: 8px;
+            border: 1px solid var(--border-royal);
+        }
+
+        .counter-btn {
+            background: var(--gold-accent);
+            color: var(--midnight-black);
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .counter-btn:hover { background: #fff; transform: scale(1.05); }
+
+        .counter-input.small-input {
+            width: 45px !important;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1rem;
+            padding: 2px !important;
+            border: none !important;
+            background: transparent !important;
+            color: var(--gold-light) !important;
+        }
+
+        .names-inputs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            padding-right: 15px;
+            border-right: 2px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .name-input-item {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .name-input-item input {
+            padding: 5px 10px;
+            font-size: 0.95rem;
+            height: 36px;
         }
 
         .match-card {
@@ -550,16 +687,54 @@
             margin-top: 25px;
         }
 
+        .strength-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .strength-card-primary {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-accent));
+            color: var(--midnight-black);
+            padding: 12px 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+        }
+
+        .strength-card-actual {
+            background: linear-gradient(135deg, #111, #222);
+            border: 2px solid var(--gold-accent);
+            color: var(--gold-light);
+            padding: 12px 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .strength-card-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .strength-card-value {
+            font-size: 1.55rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
         .print-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1.5rem;
-            font-size: 1.25rem;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
         }
 
         .print-table th, .print-table td {
             border: 1px solid #444;
-            padding: 1.1rem;
+            padding: 0.55rem 0.75rem;
             text-align: center;
         }
 
@@ -570,19 +745,19 @@
         }
 
         .print-footer {
-            margin-top: 3.5rem;
+            margin-top: 2rem;
             display: flex;
             justify-content: space-between;
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             font-weight: bold;
         }
 
         .signature-line {
             border-top: 2px solid var(--text-pure);
-            width: 280px;
-            margin-top: 3.5rem;
+            width: 240px;
+            margin-top: 2rem;
             text-align: center;
-            padding-top: 0.5rem;
+            padding-top: 0.4rem;
         }
 
         @media (max-width: 600px) {
@@ -595,33 +770,109 @@
         }
 
         @media print {
-            body { background: #050505 !important; color: #ffffff !important; padding: 0 !important; }
-            header.main-header, .no-print, .no-print-actions, .stadium-bg {
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+
+            body {
+                background: #050505 !important;
+                color: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            header.main-header,
+            .no-print,
+            .no-print-actions,
+            .stadium-bg {
                 display: none !important;
             }
-            .container { padding: 0 !important; max-width: 100% !important; }
-            
-            /* إخفاء النماذج وإظهار شاشات العرض النهائية فقط عند طباعة أي قسم */
-            #form-wrap, #power-form-wrap, #comp-form-wrap { display: none !important; }
-            #display-wrap, #power-display-wrap, #comp-display-wrap {
+
+            .container {
+                padding: 0 !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .view {
+                display: none !important;
+            }
+
+            .view.active {
+                display: block !important;
+            }
+
+            #form-wrap,
+            #power-form-wrap,
+            #comp-form-wrap,
+            #display-wrap,
+            #power-display-wrap,
+            #comp-display-wrap {
+                display: none !important;
+            }
+
+            #view-matches.active #display-wrap,
+            #view-dailypower.active #power-display-wrap,
+            #view-completion.active #comp-display-wrap {
                 display: block !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                background: #000 !important;
+                background: #0a0a0a !important;
                 box-shadow: none !important;
-                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                border: 1px solid rgba(212, 175, 55, 0.35) !important;
+                padding: 18px !important;
+                margin: 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
             }
-            #view-matches, #view-dailypower, #view-completion { display: block !important; }
-            .view { display: none !important; }
-            .view.active { display: block !important; }
+
+            .header-section {
+                margin-bottom: 14px !important;
+            }
+
+            .header-section h2 {
+                display: block !important;
+                font-size: 1.6rem !important;
+                color: #fbbf24 !important;
+            }
+
+            .global-date-banner {
+                padding: 8px 15px !important;
+                margin-bottom: 14px !important;
+                font-size: 1rem !important;
+            }
+
+            .strength-cards-grid {
+                margin-bottom: 12px !important;
+            }
+
+            .strength-card-primary,
+            .strength-card-actual {
+                padding: 10px !important;
+            }
+
+            .strength-card-value {
+                font-size: 1.4rem !important;
+            }
+
+            .print-table th,
+            .print-table td {
+                padding: 0.45rem 0.6rem !important;
+                font-size: 0.9rem !important;
+            }
+
+            .print-footer {
+                margin-top: 1.5rem !important;
+                display: flex !important;
+            }
         }
     </style>
 </head>
 <body>
 
     <header class="main-header">
-  <h1>شرطة منطقة الجوف<h1>
-  <h1>قوة المهمات والواجبات الخاصة <h1>
+        <h1>قوة المهمات والواجبات الخاصة</h1>
         <div class="header-clocks-wrapper">
             <div class="analog-clock">
                 <div class="clock-center"></div>
@@ -656,7 +907,7 @@
                     <h3>سجل المباريات</h3>
                 </div>
                 <div class="card nav-card" onclick="switchView('view-dailypower')">
-                    <h3>نشاط القوة اليومي</h3>
+                    <h3>النشاط اليومي</h3>
                 </div>
                 <div class="card nav-card" onclick="switchView('view-completion')">
                     <h3>التكميل</h3>
@@ -676,7 +927,7 @@
             <div class="luxury-container" id="form-wrap">
                 <div class="header-section">
                     <h2>قوة المهمات والواجبات الخاصة</h2>
-                    <h3>المباريات بالجوف</h3>
+                    <h3>مباريات منطقة الجوف</h3>
                 </div>
 
                 <div class="form-row keep-two-cols" style="background: rgba(251, 191, 36, 0.1); padding: 15px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(251, 191, 36, 0.2);">
@@ -715,7 +966,7 @@
             <div class="luxury-container" id="display-wrap" style="display: none;">
                 <div class="header-section">
                     <h2>قوة المهمات والواجبات الخاصة</h2>
-                    <h3>المباريات بالجوف</h3>
+                    <h3>مباريات منطقة الجوف</h3>
                 </div>
 
                 <div id="global-banner-area"></div>
@@ -728,17 +979,17 @@
             </div>
         </div>
 
-        <!-- قسم ب: نشاط القوة اليومي (بنظام عرض فاخر مشابه لسجل المباريات) -->
+        <!-- قسم ب: النشاط اليومي -->
         <div id="view-dailypower" class="view">
             <div class="section-header-bar no-print">
-                <h2>نشاط القوة اليومي</h2>
+                <h2>النشاط اليومي</h2>
                 <button class="btn nav-back" onclick="switchView('view-hub')">➔ الرئيسية</button>
             </div>
             
             <div class="luxury-container" id="power-form-wrap">
                 <div class="header-section">
                     <h2>قوة المهمات والواجبات الخاصة</h2>
-                    <h3>نشاط القوة اليومي</h3>
+                    <h3>النشاط اليومي</h3>
                 </div>
                 <div class="form-row keep-two-cols">
                     <div class="form-group">
@@ -773,18 +1024,17 @@
                 <button class="match-btn-primary" onclick="generatePowerDisplay()" style="margin-top: 15px;">عرض التقرير الفاخر</button>
             </div>
 
-            <!-- عرض التقرير النهائي لنشاط القوة -->
             <div class="luxury-container" id="power-display-wrap" style="display: none;">
                 <div class="header-section">
                     <h2>قوة المهمات والواجبات الخاصة</h2>
-                    <h3>نشاط اليومي</h3>
+                    <h3>النشاط اليومي</h3>
                 </div>
                 <div id="power-banner-area"></div>
                 <div id="power-table-area"></div>
 
                 <div class="print-footer">
                     <div></div>
-                    <div class="signature-line">قوة المهمات والواجبات الخاصة</div>
+                    <div class="signature-line">شرطة منطقة الجوف</div>
                 </div>
 
                 <div class="no-print-actions">
@@ -794,7 +1044,7 @@
             </div>
         </div>
 
-        <!-- قسم ج: التكميل (بنظام عرض فاخر مشابه لسجل المباريات) -->
+        <!-- قسم ج: التكميل -->
         <div id="view-completion" class="view">
             <div class="section-header-bar no-print">
                 <h2>التكميل</h2>
@@ -804,40 +1054,91 @@
             <div class="luxury-container" id="comp-form-wrap">
                 <div class="header-section">
                     <h2>قوة المهمات والواجبات الخاصة</h2>
-                    <h3> التكميل  اليومي</h3>
+                    <div class="comp-title-support-row">
+                        <h3>التكميل اليومي</h3>
+                        <div class="support-inline-box">
+                            <label for="comp-support">الدعم</label>
+                            <input type="number" id="comp-support" value="0" min="0" oninput="calculateActualStrength()">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 25px;">
                     <label style="color: var(--gold-accent); font-size: 1.15rem;">القوة الأساسية (الملاك)</label>
                     <input type="number" id="comp-total" value="100" min="0" oninput="calculateActualStrength()" style="font-weight: bold; font-size: 1.3rem;">
                 </div>
 
-                <div class="form-row keep-two-cols" style="margin-top: 1.2rem;">
-                    <div class="form-group">
-                        <label>الغياب</label>
-                        <input type="number" id="comp-absent" value="0" min="0" oninput="calculateActualStrength()">
+                <div id="comp-categories-container">
+                    <div class="comp-category-box" data-cat="absent">
+                        <div class="comp-category-header">
+                            <label>الغياب</label>
+                            <div class="small-counter-group">
+                                <button type="button" class="counter-btn" onclick="adjustCount('absent', -1)">-</button>
+                                <input type="number" id="count-absent" class="counter-input small-input" value="0" min="0" onchange="updateNameInputs('absent')">
+                                <button type="button" class="counter-btn" onclick="adjustCount('absent', 1)">+</button>
+                            </div>
+                        </div>
+                        <div id="names-absent" class="names-inputs-container"></div>
                     </div>
-                    <div class="form-group">
-                        <label>الإجازات </label>
-                        <input type="number" id="comp-leaves" value="0" min="0" oninput="calculateActualStrength()">
-                    </div>
-                </div>
 
-                <div class="form-row keep-two-cols" style="margin-top: 1.2rem;">
-                    <div class="form-group">
-                        <label>الإجازات المرضية</label>
-                        <input type="number" id="comp-sick" value="0" min="0" oninput="calculateActualStrength()">
+                    <div class="comp-category-box" data-cat="leaves">
+                        <div class="comp-category-header">
+                            <label>الإجازة</label>
+                            <div class="small-counter-group">
+                                <button type="button" class="counter-btn" onclick="adjustCount('leaves', -1)">-</button>
+                                <input type="number" id="count-leaves" class="counter-input small-input" value="0" min="0" onchange="updateNameInputs('leaves')">
+                                <button type="button" class="counter-btn" onclick="adjustCount('leaves', 1)">+</button>
+                            </div>
+                        </div>
+                        <div id="names-leaves" class="names-inputs-container"></div>
                     </div>
-                    <div class="form-group">
-                        <label>انتدابات </label>
-                        <input type="number" id="comp-duties" value="0" min="0" oninput="calculateActualStrength()">
-                    </div>
-                </div>
 
-                <div class="form-row" style="margin-top: 1.2rem;">
-                    <div class="form-group">
-                        <label style="color: var(--gold-light);">توقيف</label>
-                        <input type="number" id="comp-detention" value="0" min="0" oninput="calculateActualStrength()">
+                    <div class="comp-category-box" data-cat="sick">
+                        <div class="comp-category-header">
+                            <label>الإجازات المرضية</label>
+                            <div class="small-counter-group">
+                                <button type="button" class="counter-btn" onclick="adjustCount('sick', -1)">-</button>
+                                <input type="number" id="count-sick" class="counter-input small-input" value="0" min="0" onchange="updateNameInputs('sick')">
+                                <button type="button" class="counter-btn" onclick="adjustCount('sick', 1)">+</button>
+                            </div>
+                        </div>
+                        <div id="names-sick" class="names-inputs-container"></div>
+                    </div>
+
+                    <div class="comp-category-box" data-cat="duties">
+                        <div class="comp-category-header">
+                            <label>الانتدابات</label>
+                            <div class="small-counter-group">
+                                <button type="button" class="counter-btn" onclick="adjustCount('duties', -1)">-</button>
+                                <input type="number" id="count-duties" class="counter-input small-input" value="0" min="0" onchange="updateNameInputs('duties')">
+                                <button type="button" class="counter-btn" onclick="adjustCount('duties', 1)">+</button>
+                            </div>
+                        </div>
+                        <div id="names-duties" class="names-inputs-container"></div>
+                    </div>
+
+                    <div class="comp-category-box" data-cat="detention">
+                        <div class="comp-category-header">
+                            <label>توقيف</label>
+                            <div class="small-counter-group">
+                                <button type="button" class="counter-btn" onclick="adjustCount('detention', -1)">-</button>
+                                <input type="number" id="count-detention" class="counter-input small-input" value="0" min="0" onchange="updateNameInputs('detention')">
+                                <button type="button" class="counter-btn" onclick="adjustCount('detention', 1)">+</button>
+                            </div>
+                        </div>
+                        <div id="names-detention" class="names-inputs-container"></div>
+                    </div>
+
+                    <div class="comp-category-box" data-cat="courses">
+                        <div class="comp-category-header">
+                            <label>الدورات</label>
+                            <div class="small-counter-group">
+                                <button type="button" class="counter-btn" onclick="adjustCount('courses', -1)">-</button>
+                                <input type="number" id="count-courses" class="counter-input small-input" value="0" min="0" onchange="updateNameInputs('courses')">
+                                <button type="button" class="counter-btn" onclick="adjustCount('courses', 1)">+</button>
+                            </div>
+                        </div>
+                        <div id="names-courses" class="names-inputs-container"></div>
                     </div>
                 </div>
                 
@@ -867,14 +1168,17 @@
             <div class="luxury-container" id="comp-display-wrap" style="display: none;">
                 <div class="header-section">
                     <h2>قوة المهمات والواجبات الخاصة</h2>
-                    <h3>تقرير تكميل القوة اليومي</h3>
+                    <div class="comp-title-support-row">
+                        <h3>التكميل اليومي</h3>
+                        <span class="support-print-badge">الدعم: <span id="comp-support-display">0</span></span>
+                    </div>
                 </div>
                 <div id="comp-banner-area"></div>
                 <div id="comp-table-area"></div>
 
                 <div class="print-footer">
                     <div></div>
-                    <div class="signature-line">قوة المهمات والواجبات الخاصة</div>
+                    <div class="signature-line">شرطة منطقة الجوف</div>
                 </div>
 
                 <div class="no-print-actions">
@@ -1021,15 +1325,46 @@
             document.getElementById(formId).style.display = 'block';
         };
 
+        window.adjustCount = function(category, delta) {
+            const input = document.getElementById(`count-${category}`);
+            let val = parseInt(input.value) || 0;
+            val += delta;
+            if (val < 0) val = 0;
+            input.value = val;
+            updateNameInputs(category);
+            calculateActualStrength();
+        };
+
+        window.updateNameInputs = function(category) {
+            const count = parseInt(document.getElementById(`count-${category}`).value) || 0;
+            const container = document.getElementById(`names-${category}`);
+            
+            const existingInputs = container.querySelectorAll('input');
+            const existingValues = Array.from(existingInputs).map(inp => inp.value);
+
+            container.innerHTML = '';
+            for (let i = 0; i < count; i++) {
+                const val = existingValues[i] !== undefined ? existingValues[i] : '';
+                const div = document.createElement('div');
+                div.className = 'name-input-item';
+                div.innerHTML = `
+                    <input type="text" class="name-field-${category}" placeholder="أدخل اسم الفرد رقم ${i + 1}" value="${val}">
+                `;
+                container.appendChild(div);
+            }
+            calculateActualStrength();
+        };
+
         window.calculateActualStrength = function() {
             const total = parseInt(document.getElementById('comp-total').value) || 0;
-            const absent = parseInt(document.getElementById('comp-absent').value) || 0;
-            const leaves = parseInt(document.getElementById('comp-leaves').value) || 0;
-            const sick = parseInt(document.getElementById('comp-sick').value) || 0;
-            const duties = parseInt(document.getElementById('comp-duties').value) || 0;
-            const detention = parseInt(document.getElementById('comp-detention').value) || 0;
+            const absent = parseInt(document.getElementById('count-absent').value) || 0;
+            const leaves = parseInt(document.getElementById('count-leaves').value) || 0;
+            const sick = parseInt(document.getElementById('count-sick').value) || 0;
+            const duties = parseInt(document.getElementById('count-duties').value) || 0;
+            const detention = parseInt(document.getElementById('count-detention').value) || 0;
+            const courses = parseInt(document.getElementById('count-courses').value) || 0;
 
-            const nonPresent = absent + leaves + sick + duties + detention;
+            const nonPresent = absent + leaves + sick + duties + detention + courses;
             const actual = total - nonPresent;
 
             document.getElementById('comp-actual').value = actual;
@@ -1037,7 +1372,6 @@
 
         calculateActualStrength();
 
-        // توليد وعرض تقرير نشاط القوة الفاخر
         window.generatePowerDisplay = function() {
             const day = document.getElementById('power-day').value || '---';
             const date = document.getElementById('power-date').value || '---';
@@ -1081,7 +1415,6 @@
             document.getElementById('power-display-wrap').style.display = 'block';
         };
 
-        // توليد وعرض تقرير التكميل الفاخر
         window.generateCompletionDisplay = function() {
             const now = new Date();
             const dayAuto = now.toLocaleDateString('ar-SA', { weekday: 'long' });
@@ -1093,13 +1426,11 @@
             const dayToUse = dayManual.trim() !== '' ? dayManual : dayAuto;
             const dateToUse = dateManual.trim() !== '' ? dateManual : dateAuto;
 
+            const support = document.getElementById('comp-support').value || 0;
             const total = document.getElementById('comp-total').value || 0;
-            const absent = document.getElementById('comp-absent').value || 0;
-            const leaves = document.getElementById('comp-leaves').value || 0;
-            const sick = document.getElementById('comp-sick').value || 0;
-            const duties = document.getElementById('comp-duties').value || 0;
-            const detention = document.getElementById('comp-detention').value || 0;
             const actual = document.getElementById('comp-actual').value || 0;
+
+            document.getElementById('comp-support-display').innerText = support;
 
             document.getElementById('comp-banner-area').innerHTML = `
                 <div class="global-date-banner">
@@ -1108,22 +1439,52 @@
                 </div>
             `;
 
+            const getNamesList = (catClass) => {
+                const inputs = document.querySelectorAll(`.${catClass}`);
+                const names = Array.from(inputs).map(inp => inp.value.trim()).filter(n => n !== '');
+                return names.length > 0 ? names.join('، ') : '---';
+            };
+
+            const absentCount = document.getElementById('count-absent').value || 0;
+            const leavesCount = document.getElementById('count-leaves').value || 0;
+            const sickCount = document.getElementById('count-sick').value || 0;
+            const dutiesCount = document.getElementById('count-duties').value || 0;
+            const detentionCount = document.getElementById('count-detention').value || 0;
+            const coursesCount = document.getElementById('count-courses').value || 0;
+
+            const absentNames = getNamesList('name-field-absent');
+            const leavesNames = getNamesList('name-field-leaves');
+            const sickNames = getNamesList('name-field-sick');
+            const dutiesNames = getNamesList('name-field-duties');
+            const detentionNames = getNamesList('name-field-detention');
+            const coursesNames = getNamesList('name-field-courses');
+
             document.getElementById('comp-table-area').innerHTML = `
+                <div class="strength-cards-grid">
+                    <div class="strength-card-primary">
+                        <div class="strength-card-title">القوة الأساسية</div>
+                        <div class="strength-card-value">(${total})</div>
+                    </div>
+                    <div class="strength-card-actual">
+                        <div class="strength-card-title">القوة الفعلية</div>
+                        <div class="strength-card-value">(${actual})</div>
+                    </div>
+                </div>
                 <table class="print-table">
                     <thead>
                         <tr>
                             <th>البيان التفصيلي</th>
                             <th>العدد</th>
+                            <th>الأسماء / التفاصيل</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>القوة الأساسية (الملاك)</td><td>${total}</td></tr>
-                        <tr style="background-color: rgba(212, 175, 55, 0.25); font-weight: bold;"><td>القوة الفعلية (الموجودة)</td><td>${actual}</td></tr>
-                        <tr><td>الغياب</td><td>${absent}</td></tr>
-                        <tr><td>الإجازات الاعتيادية</td><td>${leaves}</td></tr>
-                        <tr><td>الإجازات المرضية</td><td>${sick}</td></tr>
-                        <tr><td>انتدابات خارجية</td><td>${duties}</td></tr>
-                        <tr><td>توقيف</td><td>${detention}</td></tr>
+                        <tr><td>الغياب</td><td>${absentCount}</td><td>${absentNames}</td></tr>
+                        <tr><td>الإجازة</td><td>${leavesCount}</td><td>${leavesNames}</td></tr>
+                        <tr><td>الإجازات المرضية</td><td>${sickCount}</td><td>${sickNames}</td></tr>
+                        <tr><td>الانتدابات</td><td>${dutiesCount}</td><td>${dutiesNames}</td></tr>
+                        <tr><td>توقيف</td><td>${detentionCount}</td><td>${detentionNames}</td></tr>
+                        <tr><td>الدورات</td><td>${coursesCount}</td><td>${coursesNames}</td></tr>
                     </tbody>
                 </table>
             `;
