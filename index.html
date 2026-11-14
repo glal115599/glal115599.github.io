@@ -46,11 +46,20 @@
 
         header.main-header h1 {
             color: var(--gold-accent);
-            font-size: 2.4rem;
+            font-size: 2.3rem;
             letter-spacing: 1px;
             text-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.4rem;
             line-height: 1.3;
+        }
+
+        header.main-header .sub-header-title {
+            color: var(--gold-light);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.8);
         }
 
         .header-clocks-wrapper {
@@ -511,16 +520,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .comp-category-header label {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--gold-light);
             margin: 0;
             font-weight: 800;
+            white-space: nowrap;
         }
 
         .small-counter-group {
@@ -531,6 +541,7 @@
             padding: 2px 4px;
             border-radius: 8px;
             border: 1px solid var(--border-royal);
+            flex-shrink: 0;
         }
 
         .counter-btn {
@@ -569,6 +580,11 @@
             margin-top: 10px;
             padding-right: 15px;
             border-right: 2px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .names-inputs-container:empty {
+            display: none;
+            margin-top: 0;
         }
 
         .name-input-item {
@@ -761,12 +777,14 @@
         }
 
         @media (max-width: 600px) {
-            header.main-header h1 { font-size: 1.8rem; }
+            header.main-header h1 { font-size: 1.5rem; }
+            header.main-header .sub-header-title { font-size: 1.2rem; }
             .welcome-screen h1 { font-size: 1.9rem; }
             .card { padding: 1.4rem; }
             .form-row { grid-template-columns: 1fr; gap: 1rem; }
             .form-row.keep-two-cols { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
             .section-header-bar h2 { font-size: 1.3rem; }
+            .comp-category-header label { font-size: 1rem; }
         }
 
         @media print {
@@ -873,6 +891,7 @@
 
     <header class="main-header">
         <h1>قوة المهمات والواجبات الخاصة</h1>
+        <div class="sub-header-title">شرطة منطقة الجوف</div>
         <div class="header-clocks-wrapper">
             <div class="analog-clock">
                 <div class="clock-center"></div>
